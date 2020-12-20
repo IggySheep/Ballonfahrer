@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @termin.title %>
+</p>
+
+<p>
+  <strong>Beschreibung:</strong>
+  <%= @termin.beschreibung %>
+</p>
+
+<p>
+  <strong>Datum:</strong>
+  <%= @termin.datum %>
+</p>
+
+<p>
+  <strong>Uhrzeit:</strong>
+  <%= @termin.uhrzeit %>
+</p>
+
+<p>
+  <strong>Koch:</strong>
+  <%= @termin.koch %>
+</p>
+
+<%= link_to 'Edit', edit_termin_path(@termin) %> |
+<%= link_to 'Back', termins_path %>

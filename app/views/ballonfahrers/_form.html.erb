@@ -1,0 +1,54 @@
+<%= form_with(model: ballonfahrer, local: true) do |form| %>
+  <% if ballonfahrer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ballonfahrer.errors.count, "error") %> prohibited this ballonfahrer from being saved:</h2>
+
+      <ul>
+        <% ballonfahrer.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tel %>
+    <%= form.number_field :tel %>
+  </div>
+
+  <div class="field">
+    <%= form.label :geburtstag %>
+    <%= form.date_select :geburtstag %>
+  </div>
+
+  <div class="field">
+    <%= form.label :uebermich %>
+    <%= form.text_area :uebermich %>
+  </div>
+
+    <div class="field">
+    <%= form.label :email %>
+    <%= form.text_area :email %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.text_area :password %>
+  </div>
+
+    <div class="field">
+    <%= form.label :password_confirmation %>
+    <%= form.text_area :password_confirmation %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

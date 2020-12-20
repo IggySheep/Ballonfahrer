@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <title>Ballonfahrer</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <style>    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+  </style>
+
+
+
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+ 
+  <body>
+ 
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#"><img src="/images/ballon.jpeg" class="img-circle" height="85" width="65" alt="Avatar"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        
+        <li><a class="nav-link" <%= link_to 'Aktive Ballonfahrer', root_path %></a></li>
+        <li><a class="nav-link active" <%= link_to 'Termine', termins_path %></a></li>
+        <li><a class="nav-link" <%= link_to 'Kochkunst', root_path %></a></li>
+        <li><a class="nav-link" <%= link_to 'News', root_path %></a></li>
+        <li><a class="nav-link" <%= link_to 'Bilder', root_path %></a></li>
+        <li><a class="nav-link" <%= link_to 'Forum', root_path %></a></li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group input-group">
+          <input type="text" class="form-control" placeholder="Search..">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+          </span>        
+        </div>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+    
+         <% if logged_in? %>
+      
+            <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <span class="glyphicon glyphicon-user"></span> <%= current_ballonfahrer.name %> <b class="caret"></b>
+            </a>
+
+            <ul class="dropdown-menu">
+              <li><%= link_to "Profile", current_ballonfahrer %></li>
+              <li><%= link_to "Settings", edit_ballonfahrer_path(current_ballonfahrer)%></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Log out", logout_path, method: "delete" %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to "Log in", login_path %></li>
+        <% end %>
+
+
+
+
+      </ul>
+    </div>
+  </div>
+</nav>
+    
+
+
+
+  
+
+
+
+    <%= yield %>
+
+  </body>
+</html>

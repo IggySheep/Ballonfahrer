@@ -1,0 +1,26 @@
+Run options: --seed 29156
+
+# Running:
+
+E
+
+Error:
+BallonfahrersLoginTest#test_login_with_invalid_information:
+ArgumentError: unknown keyword: :session
+    test/integration/ballonfahrers_login_test.rb:37:in `block in <class:BallonfahrersLoginTest>'
+
+rails test test/integration/ballonfahrers_login_test.rb:34
+
+E
+
+Error:
+BallonfahrersLoginTest#test_login_with_valid_information_followed_by_logout:
+ArgumentError: unknown keyword: :session
+    test/integration/ballonfahrers_login_test.rb:15:in `block in <class:BallonfahrersLoginTest>'
+
+rails test test/integration/ballonfahrers_login_test.rb:10
+
+
+
+Finished in 0.936111s, 2.1365 runs/s, 2.1365 assertions/s.
+2 runs, 2 assertions, 0 failures, 2 errors, 0 skips

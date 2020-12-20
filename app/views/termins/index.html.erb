@@ -1,0 +1,49 @@
+
+
+ <div class="container">
+  <h1>Grid</h1>
+
+<table>
+    
+  <thead>
+
+    <tr style="background-color:#E0F8EC">
+         <% @termins.each do |termin| %>
+       
+   
+      <th>Datum</th>
+
+      <th>Title</th>
+      <th>Datum</th>
+      <th>Koch</th>
+      <th>Uhrzeit</th>
+      <th>Aktion</th>
+
+  </tr>
+    </thead>
+  <tbody>
+    <tr>
+        <td><%= termin.datum %></td>
+        <td><%= termin.koch %></td>
+        <td><%= termin.title %></td>
+        <td><%= termin.uhrzeit %></td>
+        <td><%=h truncate(termin.beschreibung, :length => 32) %></td>
+
+        <td><%= link_to 'Destroy', termin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_termin_path(termin) %></td>
+        <td><%= link_to 'Show', termin %></td>
+      </tr>
+<% end %>
+
+    
+
+    
+  </tbody>
+</table>
+    <%= link_to 'New Termin', new_termin_path %>
+</p>
+    </div>
+
+
+
+

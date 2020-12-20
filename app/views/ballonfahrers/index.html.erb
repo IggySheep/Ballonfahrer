@@ -1,0 +1,52 @@
+
+
+
+<p id="notice"><%= notice %></p>
+
+
+ <div class="container">
+<h1>Aktive Ballonfahrer</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>No.</th>
+      <th>Name</th>
+      <th>Tel</th>
+      <th>Geburtstag</th>
+      <th>Uebermich</th>
+       <th>bisherige Teilnahmen</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% n=0 %>
+    <% @ballonfahrers.each do |ballonfahrer| %>
+       <tr style="background-color:#CEECF5">
+        <td><%= n=n+1 %></td>
+        <td><%= link_to ballonfahrer.name, ballonfahrer%></td>
+        <td><%= ballonfahrer.tel %></td>
+        <td><%= ballonfahrer.geburtstag %></td>
+        <td><%= ballonfahrer.kurzform_uebermich %></td>
+        <td>5</td>
+        <td><%= link_to 'New', new_ballonfahrer_path %></td>
+        <td><%= link_to 'Show', ballonfahrer %></td>
+        <td><%= link_to 'Edit', edit_ballonfahrer_path(ballonfahrer) %></td>
+        <td><%= button_to 'Destroy', ballonfahrer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+
+ <%= link_to 'logout', logout_path %>
+ <%= link_to 'login', login_path %>
+
+
+</div>

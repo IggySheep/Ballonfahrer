@@ -1,0 +1,42 @@
+<%= form_with(model: termin, local: true) do |form| %>
+  <% if termin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(termin.errors.count, "error") %> prohibited this termin from being saved:</h2>
+
+      <ul>
+        <% termin.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :beschreibung %>
+    <%= form.text_area :beschreibung %>
+  </div>
+
+  <div class="field">
+    <%= form.label :datum %>
+    <%= form.date_select :datum %>
+  </div>
+
+  <div class="field">
+    <%= form.label :uhrzeit %>
+    <%= form.number_field :uhrzeit %>
+  </div>
+
+  <div class="field">
+    <%= form.label :koch %>
+    <%= form.text_field :koch %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
